@@ -1,1 +1,0 @@
-This directory is for third-party tools needed to build and package the project
