@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
+
+<!-- @warning.generated-file@ -->
+
+<installation version="1.0">
+
+    <info>
+        <appname>@name.package@</appname>
+        <appversion>@version.major@.@version.minor@.@version.patch@ @version.extra@ @version.extra1@</appversion>
+        <authors>
+            <author name="@name.maintainer@" email="@email.maintainer@"/>
+        </authors>
+        <url>@supporturl@</url>
+    </info>
+    <native type="izpack" name="ShellLink.dll"/>
+    <guiprefs width="640" height="480" resizable="no"/>
+    <locale>
+        <langpack iso3="eng"/>
+    </locale>
+    <resources>
+        <res id="LicencePanel.licence" src="license.txt"/>
+        <res id="InfoPanel.info" src="release_notes.txt"/>
+        <res id="shortcutSpec.xml" src="build/dist/shortcutSpec-linux.xml"/>
+    </resources>
+
+    <panels>
+        <panel classname="InfoPanel"/>
+        <panel classname="LicencePanel"/>
+        <panel classname="TargetPanel"/>
+        <panel classname="PacksPanel"/>
+        <panel classname="ShortcutPanel"/>
+        <panel classname="InstallPanel"/>
+        <panel classname="SimpleFinishPanel"/>
+    </panels>
+
+    <packs>
+        <pack name="Base" required="yes">
+            <description>RomRaider binary files</description>
+            <file src="build/linux/lib/@name.package@.jar" targetdir="$INSTALL_PATH"/>
+            <file src="license.txt" targetdir="$INSTALL_PATH"/>
+            <file src="release_notes.txt" targetdir="$INSTALL_PATH"/>
+
+            <fileset dir="graphics" targetdir="$INSTALL_PATH/graphics" excludes="*.bmp"/>
+
+            <file src="log4j.properties" targetdir="$INSTALL_PATH"/>
+
+            <file src="logger.dtd" targetdir="$INSTALL_PATH"/>
+            <file src="profile.dtd" targetdir="$INSTALL_PATH"/>
+
+            <file src="plugins/aem.plugin" targetdir="$INSTALL_PATH/plugins"/>
+            <file src="plugins/innovate.plugin" targetdir="$INSTALL_PATH/plugins"/>
+            <file src="plugins/plx.plugin" targetdir="$INSTALL_PATH/plugins"/>
+            <file src="plugins/zt2.plugin" targetdir="$INSTALL_PATH/plugins"/>
+
+            <fileset dir="lib/common" targetdir="$INSTALL_PATH/lib/common"/>
+            <fileset dir="lib/linux" targetdir="$INSTALL_PATH/lib/linux"/>
+        </pack>
+
+        <pack name="Source Files" required="no">
+            <description>@name.package@ Source Files</description>
+            <file src="src" targetdir="$INSTALL_PATH"/>
+        </pack>
+    </packs>
+</installation>
